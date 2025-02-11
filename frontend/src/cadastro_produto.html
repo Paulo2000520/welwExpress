@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="css/cadastro_vendedor.css" />
+      <title>Cadastramento de produto</title>
+   </head>
+   <body>
+      <h2>WelwExpress | Nome da loja: Ildaira Fashion</h2>
+      <div class="menu-cadastro">
+         <form action="" method="get" id="getfrom">
+            <h2>Cadastrar Produto</h2>
+            <input type="text" class="insert" placeholder="Nome do produto" />
+            <input type="number" class="insert" placeholder="Preço" min="0" />
+
+            <select class="insert" name="Produto" id="">
+               <option value="">Selecione o Tipo de Produto</option>
+               <option value="roupa">Roupa</option>
+               <option value="calcado">Calçado</option>
+               <option value="electdm">Eletrodomestico</option>
+               <option value="mcc">Materiais de construção civil</option>
+            </select>
+            <input
+               type="number"
+               class="insert"
+               placeholder="Quantidade"
+               min="1"
+            />
+            <label for="">Imagem</label>
+            <input type="file" placeholder="Adicionar imagem" />
+            <select name="cor" class="insert" id="cor">
+               <option value="">Selecione a cor</option>
+               <option value="preta">Preta</option>
+               <option value="branca">Branca</option>
+               <option value="vermelha">Vermelha</option>
+               <option value="azul">Azul</option>
+               <option value="verde">Verde</option>
+               <option value="rosa">Rosa</option>
+               <option value="laranja">Laranja</option>
+               <option value="marrom">Marrom</option>
+               <option value="castanha">Castanha</option>
+               <option value="amarela">Amarela</option>
+               <option value="cinzenta">Cinzenta</option>
+            </select>
+            <input type="text" class="insert" placeholder="Descrição" />
+            <button type="submit">cadastrar</button>
+         </form>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="css/cadastro_vendedor.css" />
+      <link rel="stylesheet" href="css/vali.css" />
+      <title>Cadastro | WelExpress</title>
+   </head>
+   <body>
+      <h1>WelwExpress | Torna-se um Vendedor</h1>
+      <div class="menu-cadastro">
+         <h2>Cadastro</h2>
+         <div class="error"></div>
+
+         <form>
+            <input
+               type="text"
+               id="name"
+               class="insert"
+               placeholder="Ildaíra Pedro"
+            />
+
+            <input
+               type="email"
+               id="email"
+               class="insert"
+               placeholder="ilda@gmail.com"
+            />
+            <input
+               type="password"
+               id="password"
+               class="insert"
+               placeholder="palavra-passe"
+            />
+            <label for="">Alvara de Comerciante</label>
+            <input type="file" id="file" />
+            <div class="inp-1">
+               <input id="checkbox" type="checkbox" class="input-1" />
+               <a id="links" href="#"
+                  >Li e concordo com as Política e Serviços</a
+               >
+            </div>
+            <button class="submit" type="button">Enviar</button>
+         </form>
+         <h3>Já tem uma conta?<a href="#"> Faça Login</a></h3>
+      </div>
+      <script src="js/validacao/login.js" type="module"></script>
+   </body>
+</html>
