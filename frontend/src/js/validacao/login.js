@@ -1,6 +1,6 @@
 const submit = document.querySelector('.outline');
 
-function validarEmail() {
+export function validarEmail() {
    const email = document.querySelector('.email').value;
    const emailError = document.querySelector('.error-email');
 
@@ -14,7 +14,7 @@ function validarEmail() {
    }
 }
 
-function validarPassword() {
+export function validarPassword() {
    const password = document.querySelector('.password').value;
    const passwordError = document.querySelector('.error-password');
 

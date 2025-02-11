@@ -1,0 +1,12 @@
+[
+   {
+      "nome": "t-shirt",
+      "preco": 10.0,
+      "desc": "t-shirt confortável de alta qualidade para o uso do dia a dia ",
+      "categoria": "roupas",
+      "cores": ["branca", "preta", "vermelha", "azul", "amarela"],
+      "tamanhos": ["S", "M", "L", "XL", "XXL"],
+      "qty": 150,
+      "img": ""
+   }
+]

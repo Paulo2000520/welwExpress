@@ -4,16 +4,16 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="css/cadastro_vendedor.css" />
-      <link rel="stylesheet" href="css/vali.css" />
+      <link rel="stylesheet" href="css/globals.css" />
+      <link rel="stylesheet" href="css/login.css" />
       <title>WelExpress | login</title>
    </head>
    <body>
-      <h1>WelwExpress</h1>
       <div class="menu-cadastro">
-         <h2>Faça o login</h2>
-         <div class="error error-email"></div>
-         <div class="error error-password"></div>
          <form action="" method="get">
+            <h2 class="login">Login</h2>
+            <div class="error error-email"></div>
+            <div class="error error-password"></div>
             <input
                type="email"
                class="insert email"
@@ -25,16 +25,13 @@
                placeholder="Palavra-Passe"
             />
             <button class="outline submit" type="button">Entrar</button>
-            <button type="button">Cadastrar</button>
             <h3><a href="http://">Recuperar Senha</a></h3>
+            <h6 class="criar-conta">
+               <a href="cadastro_vendedor.html">Criar conta para vendedor</a>
+            </h6>
          </form>
-         <h3>
-            <a href="cadastro_vendedor.html"
-               >Nâo tenho uma conta-Vendedor Cadastra-se aqui</a
-            >
-         </h3>
       </div>
 
-      <script src="js/validacao/vali.js" type="module"></script>
+      <script src="js/validacao/login.js" type="module"></script>
    </body>
 </html>

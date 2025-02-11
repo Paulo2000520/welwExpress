@@ -4,13 +4,13 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="css/cadastro_vendedor.css" />
-      <link rel="stylesheet" href="css/vali.css" />
+      <link rel="stylesheet" href="css/globals.css" />
       <title>Cadastro | WelExpress</title>
    </head>
    <body>
       <h1>WelwExpress | Torna-se um Vendedor</h1>
       <div class="menu-cadastro">
-         <h2>Cadastro</h2>
+         <h2 class="cadastro">Cadastro</h2>
          <div class="error"></div>
 
          <form>
@@ -34,16 +34,17 @@
                placeholder="palavra-passe"
             />
             <label for="">Alvara de Comerciante</label>
-            <input type="file" id="file" />
+            <input type="file" id="file" class="insert-file" />
             <div class="inp-1">
                <input id="checkbox" type="checkbox" class="input-1" />
                <a id="links" href="#"
                   >Li e concordo com as Política e Serviços</a
                >
             </div>
-            <button class="submit" type="button">Enviar</button>
+            <button class="submit outline extra-spaces" type="button">
+               Enviar
+            </button>
          </form>
-         <h3>Já tem uma conta?<a href="#"> Faça Login</a></h3>
       </div>
       <script src="js/validacao/login.js" type="module"></script>
    </body>

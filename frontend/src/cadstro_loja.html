@@ -4,57 +4,36 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="css/cadastro_vendedor.css" />
+      <link rel="stylesheet" href="css/globals.css" />
       <title>Cadastro | loja</title>
    </head>
    <body>
       <h1>WelwExpress</h1>
       <div class="menu-cadastro">
-         <h2>Cadastre a tua loja</h2>
+         <h2 class="cadastro-de-loja">Cadastre a tua loja</h2>
          <form>
-            <input type="text" class="insert" placeholder="Nome_da_Loja" />
+            <div class="error error-loja"></div>
+            <div class="error error-email"></div>
+            <input
+               type="text"
+               class="insert nome-loja"
+               placeholder="Nome_da_Loja"
+            />
             <input type="text" class="insert" placeholder="NIF" />
             <input
                type="email"
                id="name"
-               class="insert"
+               class="insert email"
                placeholder="exemplo@gmail.com"
             />
-            <input type="number" class="insert" placeholder="IBAN" />
-            <input type="text" class="insert" placeholder="Tipo de comércio" />
-            <select class="insert" name="Provincia" id="Provincia">
-               <option value="Selecione">Provincia</option>
-               <option value="benguela">Benguela</option>
-               <option value="bengo">Bengo</option>
-               <option value="bie">Bie</option>
-               <option value="cabinda">Cabinda</option>
-               <option value="Cuanza-Norte">Cuanza-Norte</option>
-               <option value="Cuanza-Sul">Cuanza-Sul</option>
-               <option value="cuando">Cuando</option>
-               <option value="cubango">Cubango</option>
-               <option value="cunene">Cunene</option>
-               <option value="huambo">Huambo</option>
-               <option value="huila">Huila</option>
-               <option value="icoloebengo">Icole e Bengo</option>
-               <option value="luanda">Luanda</option>
-               <option value="lunda-sul">Lunda-Sul</option>
-               <option value="lunda-norte">Lunda-Norte</option>
-               <option value="malanje">Malanje</option>
-               <option value="moxico">Moxico</option>
-               <option value="moxico-leste">Moxico-Leste</option>
-               <option value="namibe">Namibe</option>
-               <option value="uige">Uige</option>
-               <option value="zaire">Zaire</option>
-            </select>
-            <input
-               type="text-area"
-               id="name"
-               class="insert"
-               placeholder="Luanda, Mutamba, kinaxixi"
-            />
-
-            <button type="submit">Finaliza</button>
+            <input type="number" class="insert" placeholder="IBAN" min="1" />
+            <a href="cadastroLoja.html">
+               <button type="button" class="outline extra-spaces">
+                  Continuar
+               </button></a
+            >
+            <script type="module" src="js/validacao/cadastrarLoja.js"></script>
          </form>
-         <h3>Não cadastrar <a href="#">desejo voltar</a></h3>
       </div>
    </body>
 </html>
