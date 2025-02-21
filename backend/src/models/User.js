@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
    password: {
       type: String,
       required: [true, 'Insira uma palavra passe'],
-      minlength: [6, 'Palavra-passe deve ser maior que 6.'],
+      minlength: [6, 'Palavra-passe deve conter mais de 6 caracteres.'],
    },
    role: {
       type: String,
@@ -33,9 +33,6 @@ const userSchema = new mongoose.Schema({
    },
    alvara: {
       type: String,
-      required: function () {
-         return this.role === 'admin';
-      },
       trim: true,
    },
 });
