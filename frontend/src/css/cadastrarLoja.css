@@ -1,0 +1,30 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+header {
+   margin-bottom: 20px;
+}
+
+.div-logo img {
+   width: 70px;
+   height: 70px;
+}
+
+.bv {
+   font-size: 25px;
+   text-align: center;
+   font-family: Poppins;
+   color: var(--cor-padrao);
+}
+
+h2 {
+   font-weight: 500;
+   font-size: 12px;
+   text-align: center;
+}
+
+.insert {
+   border: 1px solid black;
+}

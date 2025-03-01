@@ -1,10 +1,8 @@
-import { validarEmail, validarPassword } from './login.js';
+import { validarEmailVendedor } from './cadastroVendedor.js';
 
 const nomeLoja = document.querySelector('.nome-loja');
 const erroLoja = document.querySelector('.error-loja');
 const submit = document.querySelector('.outline');
-
-console.log(erroLoja);
 
 function validarNomeLoja() {
    if (!nomeLoja.value) {
@@ -21,6 +19,6 @@ submit.addEventListener('click', (e) => {
    e.preventDefault();
 
    validarNomeLoja();
-   validarEmail();
-   validarPassword;
+   validarEmailVendedor();
+   validarPassword();
 });

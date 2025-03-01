@@ -3,10 +3,10 @@ const { StatusCodes } = require('http-status-codes');
 const { BadRequestError, UnauthenticatedError } = require('../errors');
 
 const register = async (req, res) => {
-   const { nome, email, password } = req.body;
+   const { name, email, password } = req.body;
 
    const newUser = new User({
-      nome,
+      name,
       email,
       password,
       role: 'comprador',
@@ -17,7 +17,11 @@ const register = async (req, res) => {
    const token = newUser.createJWT();
 
    res.status(StatusCodes.CREATED).json({
-      user: { msg: 'Conta cadastrada com sucesso!', nome: newUser.nome },
+      user: {
+         msg: 'Conta cadastrada com sucesso!',
+         name: newUser.name,
+         role: newUser.role,
+      },
       token,
    });
 };
@@ -47,7 +51,10 @@ const login = async (req, res) => {
 
    const token = user.createJWT();
 
-   res.status(StatusCodes.OK).json({ user: { nome: user.nome }, token });
+   res.status(StatusCodes.OK).json({
+      user: { name: user.name, role: user.role },
+      token,
+   });
 };
 
 module.exports = { register, login };

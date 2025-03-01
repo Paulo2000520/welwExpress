@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="css/cadastro_vendedor.css" />
+      <link rel="stylesheet" href="css/globals.css" />
+      <title>Cadastro | WelExpress</title>
+   </head>
+   <body>
+      <header>
+         <div class="div-logo">
+            <img src="./img/LOGO.png" alt="" />
+         </div>
+      </header>
+
+      <main>
+         <h2 class="login">Cadastrar</h2>
+         <div class="error-name-vendedor"></div>
+         <div class="error-email-vendedor"></div>
+         <div class="error-password-vendedor"></div>
+
+         <form>
+            <input
+               type="text"
+               id="name"
+               class="insert name-vendedor"
+               placeholder="Ildaíra Pedro"
+            />
+
+            <input
+               type="email"
+               id="email"
+               class="insert email-vendedor"
+               placeholder="ilda@gmail.com"
+            />
+            <input
+               type="password"
+               id="password"
+               class="insert password-vendedor"
+               placeholder="palavra-passe"
+            />
+            <button class="submit outline extra-spaces" type="button">
+               Cadastrar
+            </button>
+         </form>
+      </main>
+      <script src="js/auth/cadastro_user.js" type="module"></script>
+   </body>
+</html>

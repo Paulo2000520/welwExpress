@@ -1,56 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="css/cadastro_vendedor.css" />
       <link rel="stylesheet" href="css/globals.css" />
+      <link rel="stylesheet" href="./css/cadastrarLoja.css" />
       <title>Cadastro | loja</title>
    </head>
    <body>
-      <h1>WelwExpress</h1>
-      <div class="menu-cadastro">
-         <h2>Cadastre a tua loja</h2>
+      <header>
+         <div class="div-logo">
+            <img src="./img/LOGO.png" alt="" />
+         </div>
+         <h1 class="bv">Bem-Vindo a WelwExpress</h1>
+         <h2>
+            Chegou a sua oportunidade de vender mais e crescer sem limites<br />
+            Cadastre a sua loja na WelwExpress!
+         </h2>
+      </header>
+
+      <main>
          <form>
             <div class="error error-loja"></div>
             <div class="error error-email"></div>
 
-            <input type="text" class="insert" placeholder="Tipo de comércio" />
-            <select class="insert" name="Provincia" id="Provincia">
-               <option value="Selecione">Provincia</option>
-               <option value="benguela">Benguela</option>
-               <option value="bengo">Bengo</option>
-               <option value="bie">Bie</option>
-               <option value="cabinda">Cabinda</option>
-               <option value="Cuanza-Norte">Cuanza-Norte</option>
-               <option value="Cuanza-Sul">Cuanza-Sul</option>
-               <option value="cuando">Cuando</option>
-               <option value="cubango">Cubango</option>
-               <option value="cunene">Cunene</option>
-               <option value="huambo">Huambo</option>
-               <option value="huila">Huila</option>
-               <option value="icoloebengo">Icole e Bengo</option>
-               <option value="luanda">Luanda</option>
-               <option value="lunda-sul">Lunda-Sul</option>
-               <option value="lunda-norte">Lunda-Norte</option>
-               <option value="malanje">Malanje</option>
-               <option value="moxico">Moxico</option>
-               <option value="moxico-leste">Moxico-Leste</option>
-               <option value="namibe">Namibe</option>
-               <option value="uige">Uige</option>
-               <option value="zaire">Zaire</option>
-            </select>
-            <input
-               type="text-area"
-               id="name"
-               class="insert"
-               placeholder="Luanda, Mutamba, kinaxixi"
-            />
+            <div class="box">
+               <div class="error error-loja"></div>
+               <div class="error-email-vendedor"></div>
+               <input
+                  type="text"
+                  class="insert nome-loja"
+                  placeholder="Nome_da_Loja"
+               />
+               <input type="text" class="insert" placeholder="NIF" />
+               <input
+                  type="email"
+                  id="name"
+                  class="insert email-vendedor"
+                  placeholder="exemplo@gmail.com"
+               />
+               <input
+                  type="number"
+                  class="insert"
+                  min="1"
+                  placeholder="Telefone"
+               />
+               <input type="number" class="insert" placeholder="IBAN" min="1" />
+            </div>
 
-            <button type="button" class="outline extra-spaces">
-               Cadastrar
-            </button>
+            <div class="box">
+               <input
+                  type="text"
+                  class="insert"
+                  placeholder="Tipo de comércio"
+               />
+               <select class="insert" name="Provincia" id="Provincia">
+                  <option value="Selecione">Provincia</option>
+                  <option value="benguela">Benguela</option>
+                  <option value="bengo">Bengo</option>
+                  <option value="bie">Bie</option>
+                  <option value="cabinda">Cabinda</option>
+                  <option value="Cuanza-Norte">Cuanza-Norte</option>
+                  <option value="Cuanza-Sul">Cuanza-Sul</option>
+                  <option value="cuando">Cuando</option>
+                  <option value="cubango">Cubango</option>
+                  <option value="cunene">Cunene</option>
+                  <option value="huambo">Huambo</option>
+                  <option value="huila">Huila</option>
+                  <option value="icoloebengo">Icole e Bengo</option>
+                  <option value="luanda">Luanda</option>
+                  <option value="lunda-sul">Lunda-Sul</option>
+                  <option value="lunda-norte">Lunda-Norte</option>
+                  <option value="malanje">Malanje</option>
+                  <option value="moxico">Moxico</option>
+                  <option value="moxico-leste">Moxico-Leste</option>
+                  <option value="namibe">Namibe</option>
+                  <option value="uige">Uige</option>
+                  <option value="zaire">Zaire</option>
+               </select>
+               <input
+                  type="text-area"
+                  id="name"
+                  class="insert"
+                  placeholder="Mutamba, kinaxixi"
+               />
+               <button type="button" class="outline">Cadastrar</button>
+            </div>
          </form>
-      </div>
+      </main>
    </body>
 </html>

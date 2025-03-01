@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="css/cadastro_vendedor.css" />
+      <link rel="stylesheet" href="css/globals.css" />
+      <title>Cadastramento de produto</title>
+   </head>
+
+   <body>
+      <header>
+         <div class="div-logo">
+            <img src="./img/LOGO.png" alt="" />
+         </div>
+      </header>
+
+      <main>
+         <!--Formulario-->
+         <h2 class="cadastro">cadastrar</h2>
+         <form action="" method="get" id="getfrom">
+            <!--Seccao para mensagens de erro, caso o formulario não esteje devidamente preenchido-->
+            <div class="error error-nome-produto"></div>
+            <div class="error error-preco-produto"></div>
+            <div class="error error-categoria-produto"></div>
+            <div class="error error-qty-produto"></div>
+            <div class="error error-add-image-produto"></div>
+
+            <!--Seccao dos input's e selectores-->
+            <input
+               type="text"
+               class="insert nome-produto"
+               placeholder="Nome do produto"
+            />
+            <input
+               type="number"
+               class="insert preco-produto"
+               placeholder="Preço"
+               min="0"
+            />
+
+            <select
+               class="insert categoria-produto"
+               name="categoria"
+               id="categoria"
+            >
+               <option value="">Selecione o Tipo de Produto</option>
+               <option value="roupa">Roupa</option>
+               <option value="calcado">Calçado</option>
+               <option value="electdm">Eletrodomestico</option>
+               <option value="mcc">Materiais de construção civil</option>
+            </select>
+
+            <input
+               type="number"
+               class="insert qty-produto"
+               placeholder="Quantidade"
+               min="1"
+            />
+            <label for="upload" class="custom-file-upload">Imagem</label>
+            <input
+               type="file"
+               id="upload"
+               class="add-image-produto"
+               placeholder="Adicionar imagem"
+            />
+
+            <select name="cores" class="insert cor-produto" id="cores">
+               <option value="">Selecione a cor</option>
+               <option value="preta">Preta</option>
+               <option value="branca">Branca</option>
+               <option value="vermelha">Vermelha</option>
+               <option value="azul">Azul</option>
+               <option value="verde">Verde</option>
+               <option value="rosa">Rosa</option>
+               <option value="laranja">Laranja</option>
+               <option value="marrom">Marrom</option>
+               <option value="castanha">Castanha</option>
+               <option value="amarela">Amarela</option>
+               <option value="cinzenta">Cinzenta</option>
+            </select>
+
+            <!--Seccao para o botão-->
+            <button type="submit" class="outline">cadastrar</button>
+         </form>
+         <!--Fim Formulario-->
+      </main>
+
+      <script type="module" src="js/validacao/cadastroProduto.js"></script>
+   </body>
+</html>

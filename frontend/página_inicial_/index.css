@@ -1,0 +1,130 @@
+body {
+   font-family: sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+header {
+   padding: 15px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background: rgb(47, 1, 47);
+}
+
+nav ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   text-align: right;
+   gap: 43rem;
+}
+
+nav li img {
+   width: 20px;
+   height: 10px;
+}
+
+nav li {
+   display: inline-block;
+   margin-left: 15px;
+}
+
+nav a {
+   text-decoration: none;
+   color: white;
+}
+
+button {
+   background: black;
+   border-radius: 5px;
+   border: none;
+   font-style: 10px;
+   color: white;
+   padding-top: 2px;
+}
+
+input {
+   border: none;
+   outline: none;
+   padding: 2px;
+   background: rgb(47, 1, 47);
+}
+
+.hM {
+   background: rgb(34, 0, 21);
+}
+
+.product-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+   /* Responsivo */
+   grid-gap: 20px;
+}
+
+.product img {
+   max-width: 100%;
+   height: auto;
+}
+
+.product2 img {
+   max-width: 100%;
+   height: auto;
+   border-radius: 5%;
+}
+
+article {
+   box-shadow: rgba(0, 0, 0, 0.1) 4px 6px 12px;
+   border: 1px solid #ccc;
+   padding: 20px;
+   margin-bottom: 20px;
+   border-radius: 10px;
+}
+
+.smm {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+.m2 {
+   background: black;
+}
+
+.m1 {
+   background: white;
+}
+
+h1 {
+   text-align: center;
+   color: black;
+}
+
+.mm {
+   border: solid 1px white;
+   border-radius: 3px;
+}
+
+.m3 {
+   background: gold;
+}
+
+.m12 {
+   background: darkgreen;
+}
+
+.m11 {
+   background: ghostwhite;
+}
+
+.m13 {
+   background: darkgrey;
+}
+
+.m14 {
+   background: skyblue;
+}
+
+.m15 {
+   background: lightpink;
+}

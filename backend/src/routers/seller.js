@@ -3,6 +3,6 @@ const router = express.Router();
 const register = require('../controllers/seller.auth');
 const upload = require('../middlewares/upload');
 
-router.post('/registro-vendedor', upload.single('alvara'), register);
+router.post('/seller-register', upload.single('alvara'), register);
 
 module.exports = router;

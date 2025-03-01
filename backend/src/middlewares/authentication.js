@@ -1,11 +1,13 @@
 const jwt = require('jsonwebtoken');
-const { UnautenticatedError } = require('../errors');
+const { UnauthenticatedError } = require('../errors');
 
 const auth = (req, res, next) => {
-   const authHeader = req.headears.authentication;
+   const authHeader = req.headers.authorization;
 
-   if (!authHeader && authHeader.startsWith('Bearer')) {
-      throw new UnautenticatedError('As credencias estão erradas');
+   if (!authHeader || !authHeader.startsWith('Bearer')) {
+      throw new UnauthenticatedError(
+         'Não tem autorização para acessar este recurso'
+      );
    }
 
    const token = authHeader.split(' ')[1];
@@ -14,12 +16,16 @@ const auth = (req, res, next) => {
       const payload = jwt.verify(token, process.env.JWT_SECRET);
 
       req.user = {
-         userId: payload._id,
-         nome: payload.nome,
+         userId: payload.userId || payload._id,
+         name: payload.name,
          role: payload.role,
       };
+
+      next();
    } catch (error) {
-      throw new UnautenticatedError('As credencias estão erradas');
+      throw new UnauthenticatedError(
+         'Não tem autorização para acessar este recurso'
+      );
    }
 };
 

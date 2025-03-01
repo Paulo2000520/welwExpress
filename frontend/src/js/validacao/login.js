@@ -1,4 +1,4 @@
-const submit = document.querySelector('.outline');
+export const submit = document.querySelector('.outline');
 
 export function validarEmail() {
    const email = document.querySelector('.email').value;

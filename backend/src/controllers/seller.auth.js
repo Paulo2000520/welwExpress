@@ -5,14 +5,7 @@ const path = require('path');
 const { BadRequestError } = require('../errors');
 
 const register = async (req, res) => {
-   const { nome, email, password } = req.body;
-
-   const newSeller = new User({
-      nome,
-      email,
-      password,
-      role: 'vendedor',
-   });
+   const { name, email, password } = req.body;
 
    let alvara = null;
 
@@ -24,18 +17,25 @@ const register = async (req, res) => {
 
    const uploadPath = path.join(process.cwd(), 'src', 'uploads', alvara);
 
-   fs.writeFileSync(uploadPath, req.file.buffer);
-
-   newSeller.alvara = alvara;
+   const newSeller = new User({
+      name,
+      email,
+      password,
+      role: 'vendedor',
+      alvara,
+   });
 
    await newSeller.save();
+
+   fs.writeFileSync(uploadPath, req.file.buffer);
 
    const token = newSeller.createJWT();
 
    res.status(StatusCodes.CREATED).json({
       user: {
          msg: 'Conta cadastrada com sucesso!',
-         nome: newSeller.nome,
+         name: newSeller.name,
+         role: newSeller.role,
       },
       token,
    });

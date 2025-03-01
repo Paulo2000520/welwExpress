@@ -8,12 +8,17 @@
       <title>Cadastro | loja</title>
    </head>
    <body>
-      <h1>WelwExpress</h1>
-      <div class="menu-cadastro">
+      <header>
+         <div class="div-logo">
+            <img src="./img/LOGO.png" alt="" />
+         </div>
+      </header>
+
+      <main>
          <h2 class="cadastro-de-loja">Cadastre a tua loja</h2>
          <form>
             <div class="error error-loja"></div>
-            <div class="error error-email"></div>
+            <div class="error-email-vendedor"></div>
             <input
                type="text"
                class="insert nome-loja"
@@ -23,7 +28,7 @@
             <input
                type="email"
                id="name"
-               class="insert email"
+               class="insert email-vendedor"
                placeholder="exemplo@gmail.com"
             />
             <input type="number" class="insert" placeholder="IBAN" min="1" />
@@ -32,8 +37,9 @@
                   Continuar
                </button></a
             >
-            <script type="module" src="js/validacao/cadastrarLoja.js"></script>
          </form>
-      </div>
+      </main>
+
+      <script type="module" src="js/validacao/cadastrarLoja.js"></script>
    </body>
 </html>

@@ -20,12 +20,14 @@ app.use(
 
 const sellerAuthRouter = require('./src/routers/seller');
 const authRouter = require('./src/routers/user');
+const storeRegisterRouter = require('./src/routers/store');
 
 const notFound = require('./src/middlewares/not-found');
 const errorHandlerMiddleware = require('./src/middlewares/error-handler');
 
 app.use('/api/v1/welwexpress', sellerAuthRouter);
-app.use('/api/v1/welwexpress', authRouter);
+app.use('/api/v1/welwexpress/auth', authRouter);
+app.use('/api/v1/welwexpress', storeRegisterRouter);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);

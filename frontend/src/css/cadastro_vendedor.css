@@ -53,22 +53,23 @@ label {
 }
 
 .outline {
-   border: 1px solid #6c1478;
-   background-color: white;
-   color: #6c1478;
+   border: 1px solid #25064c;
+   background-color: #25064c;
+   color: white;
    font-weight: bold;
    transition: 0.5s ease;
 }
 
 .outline:hover {
-   background-color: #6c1478;
-   color: white;
+   background-color: white;
+   color: #25064c;
+   border-color: #25064c;
 }
 
 .outline a {
    font-size: 12px;
    font-weight: bold;
-   color: #6c1478;
+   color: #25064c;
    text-decoration: none;
    font-family: Poppins, sans-serif;
 }

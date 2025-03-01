@@ -8,33 +8,42 @@
       <title>Cadastro | WelExpress</title>
    </head>
    <body>
-      <h1>WelwExpress | Torna-se um Vendedor</h1>
-      <div class="menu-cadastro">
-         <h2 class="cadastro">Cadastro</h2>
+      <header>
+         <div class="div-logo">
+            <img src="./img/LOGO.png" alt="" />
+         </div>
+      </header>
+
+      <main>
+         <h2 class="cadastro">Cadastra-se</h2>
          <div class="error"></div>
 
-         <form>
+         <form enctype="multipart/form-data" class="form">
+            <div class="error-name-vendedor"></div>
+            <div class="error-email-vendedor"></div>
+            <div class="error-password-vendedor"></div>
+            <div class="error-alvara-comercial"></div>
             <input
                type="text"
                id="name"
-               class="insert"
+               class="insert name-vendedor"
                placeholder="Ildaíra Pedro"
             />
 
             <input
                type="email"
                id="email"
-               class="insert"
+               class="insert email-vendedor"
                placeholder="ilda@gmail.com"
             />
             <input
                type="password"
                id="password"
-               class="insert"
+               class="insert password-vendedor"
                placeholder="palavra-passe"
             />
-            <label for="">Alvara de Comerciante</label>
-            <input type="file" id="file" class="insert-file" />
+
+            <input type="file" id="alvara" class="alvara-comercial" />
             <div class="inp-1">
                <input id="checkbox" type="checkbox" class="input-1" />
                <a id="links" href="#"
@@ -42,10 +51,10 @@
                >
             </div>
             <button class="submit outline extra-spaces" type="button">
-               Enviar
+               Cadastrar
             </button>
          </form>
-      </div>
-      <script src="js/validacao/login.js" type="module"></script>
+      </main>
+      <script src="js/auth/cadastrar.js" type="module"></script>
    </body>
 </html>

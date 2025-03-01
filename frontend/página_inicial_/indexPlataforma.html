@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Plataforma de lojas</title>
+      <style>
+         * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+         }
+
+         body {
+            font-family: Arial, sans-serif;
+         }
+
+         header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+         }
+
+         nav {
+            display: flex;
+            justify-content: space-around;
+            background: #444;
+            padding: 10px;
+         }
+
+         nav a {
+            color: white;
+            text-decoration: none;
+         }
+
+         .banner {
+            background: url('./wet-sphere-reflective-water-abstract-beauty-generated-by-ai.jpg')
+               center/cover no-repeat;
+            color: white;
+            padding: 50px;
+            text-align: center;
+         }
+
+         .container {
+            padding: 20px;
+            text-align: center;
+         }
+
+         .lojas-destaque,
+         .publicidades,
+         .categorias,
+         .novas-lojas {
+            margin-bottom: 30px;
+         }
+
+         .grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+         }
+
+         .card {
+            width: 200px;
+            padding: 15px;
+            background: red;
+            color: white;
+            border-radius: 5px;
+         }
+
+         footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 5px;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Minha Plataforma</h1>
+      </header>
+
+      <nav>
+         <a href="#">Home</a>
+         <a href="#">Lojas</a>
+         <a href="#">Sobre</a>
+         <a href="#">Contacto</a>
+         <input type="text" placeholder="Buscar lojas..." />
+      </nav>
+
+      <div class="banner">
+         <h2>Encontre as melhores lojas da sua cidade!</h2>
+         <button>Cadastre sua loja</button>
+      </div>
+
+      <div class="container">
+         <section class="lojas-destaque">
+            <h2>Lojas em destaque</h2>
+            <div class="grid">
+               <div class="card">Loja 1</div>
+               <div class="card">Loja 2</div>
+               <div class="card">Loja 3</div>
+            </div>
+         </section>
+
+         <section class="publicidade">
+            <h2>Publicidade</h2>
+            <div class="card" style="width: 100%; text-align: center">
+               Anúncios Pago Aqui
+            </div>
+         </section>
+
+         <section class="categorias">
+            <h2>Categorias</h2>
+            <div class="card">Moda</div>
+            <div class="card">Electrónicos</div>
+            <div class="card">Desportivos</div>
+         </section>
+
+         <section class="novas-lojas">
+            <h2>Últimas lojas cadastradas</h2>
+            <div class="grid">
+               <div class="card">Loja A</div>
+               <div class="card">Loja B</div>
+               <div class="card">Loja C</div>
+            </div>
+         </section>
+      </div>
+
+      <footer>
+         <p>&copy; 2025 Minha Plataforma - Todos os direitos reservados</p>
+      </footer>
+   </body>
+</html>
