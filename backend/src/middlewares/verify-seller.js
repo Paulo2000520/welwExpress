@@ -1,8 +1,9 @@
 const verifySeller = async (req, res, next) => {
    try {
-      if (!req.user || req.user.role !== 'vendedor') {
+      if (!req.user || req.user.role !== 'vendedor(a)') {
          return res.status(403).json({
-            message: 'Acesso negado. Apenas vendedores podem cadastrar lojas.',
+            message:
+               'Acesso negado. Apenas vendedores podem acessar este recurso.',
          });
       }
       next();

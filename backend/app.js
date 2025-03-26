@@ -18,16 +18,23 @@ app.use(
    })
 );
 
-const sellerAuthRouter = require('./src/routers/seller');
-const authRouter = require('./src/routers/user');
+const sellerAuthRouter = require('./src/routers/user');
+const userAuthRouter = require('./src/routers/user');
 const storeRegisterRouter = require('./src/routers/store');
+const employeeRouter = require('./src/routers/user');
+
+const productsRouter = require('./src/routers/products');
 
 const notFound = require('./src/middlewares/not-found');
 const errorHandlerMiddleware = require('./src/middlewares/error-handler');
 
-app.use('/api/v1/welwexpress', sellerAuthRouter);
-app.use('/api/v1/welwexpress/auth', authRouter);
-app.use('/api/v1/welwexpress', storeRegisterRouter);
+app.use(process.env.BASE_URL, sellerAuthRouter);
+app.use(process.env.BASE_URL, userAuthRouter);
+app.use(process.env.BASE_URL, employeeRouter);
+
+app.use(process.env.BASE_URL, storeRegisterRouter);
+
+app.use(process.env.BASE_URL, productsRouter);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
@@ -36,9 +43,9 @@ const port = process.env.PORT || 3000;
 
 const start = async () => {
    try {
-      connectDB(process.env.MONGO_URI);
+      await connectDB(process.env.MONGO_URI);
       app.listen(port, () =>
-         console.log(`Server is listening on port ${port}...`)
+         console.log(`Server is listening on port http://localhost:${port}...`)
       );
    } catch (error) {
       console.log(error);

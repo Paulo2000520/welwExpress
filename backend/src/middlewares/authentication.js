@@ -6,7 +6,7 @@ const auth = (req, res, next) => {
 
    if (!authHeader || !authHeader.startsWith('Bearer')) {
       throw new UnauthenticatedError(
-         'Não tem autorização para acessar este recurso'
+         'Não tem autorização para acessar esta rota'
       );
    }
 
@@ -24,7 +24,7 @@ const auth = (req, res, next) => {
       next();
    } catch (error) {
       throw new UnauthenticatedError(
-         'Não tem autorização para acessar este recurso'
+         'Não tem autorização para acessar esta rota'
       );
    }
 };

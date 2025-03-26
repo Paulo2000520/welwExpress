@@ -4,6 +4,7 @@ const storeSchema = new mongoose.Schema({
    name: {
       type: String,
       required: [true, 'Insira o nome da loja.'],
+      minlength: 3,
       maxlength: 30,
       trim: true,
       capitalise: true,
@@ -23,9 +24,10 @@ const storeSchema = new mongoose.Schema({
       match: [/\S+@\S+\.\S+/, 'Este email não é válido.'],
    },
    phone: {
-      type: String,
+      type: Number,
       required: [true, 'O telefone é obrigatório.'],
       match: [/^\d{9}$/, 'O telefone deve ter 9 dígitos numéricos.'],
+      unique: true,
    },
    iban: {
       type: String,
@@ -65,7 +67,7 @@ const storeSchema = new mongoose.Schema({
             'Lunda Sul',
             'Malanje',
             'Moxico',
-            'Moxico Leste',
+            'Moxico-Leste',
             'Namibe',
             'Uíge',
             'Zaire',
@@ -78,16 +80,9 @@ const storeSchema = new mongoose.Schema({
       required: [true, 'O endereço é obrigatório.'],
    },
    owner: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Usuario',
       required: true,
-      validate: {
-         validator: async function (ownerId) {
-            const user = await mongoose.model('User').findById(ownerId);
-            return user && user.role === 'vendedor';
-         },
-         message: 'Apenas vendedores podem ser donos de lojas',
-      },
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
    },
    createdAt: {
       type: Date,

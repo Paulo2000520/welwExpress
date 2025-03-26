@@ -2,7 +2,14 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+const regexBI = /^\d{9}[A-Z]$|^\d{9}[A-Z]{2}\d{3}$/;
+
 const userSchema = new mongoose.Schema({
+   role: {
+      type: String,
+      enum: ['admin', 'comprador(a)', 'vendedor(a)', 'funcionario'],
+      required: true,
+   },
    name: {
       type: String,
       required: [true, 'Insira o seu nome.'],
@@ -23,13 +30,8 @@ const userSchema = new mongoose.Schema({
    },
    password: {
       type: String,
-      required: [true, 'Insira uma palavra passe'],
+      required: [true, 'Insira uma palavra passe.'],
       minlength: [6, 'Palavra-passe deve conter mais de 6 caracteres.'],
-   },
-   role: {
-      type: String,
-      enum: ['admin', 'comprador', 'vendedor', 'funcionario'],
-      required: true,
    },
    alvara: {
       type: String,

@@ -14,17 +14,32 @@ const errorHandlerMiddleware = (err, req, res, next) => {
       customError.statusCode = StatusCodes.BAD_REQUEST;
    }
 
+   if (err?.name === 'CastError') {
+      customError.msg = 'ID incorreto.';
+      customError.statusCode = StatusCodes.BAD_REQUEST;
+   }
+
    if (err.code && err.code === 11000) {
       const error = !err.keyValue
          ? 'Algo ocorreu mal, tente mais tarde.'
          : Object.keys(err.keyValue);
-      const typeof_msg = typeof error;
+      const typeofMsg = typeof error;
 
       const duplicateMsg = `Já existe um usuário com este ${
-         typeof_msg === 'object' ? error[0] : ''
+         typeofMsg === 'object' ? error[0] : ''
       }, tente outro.`;
 
       customError.msg = duplicateMsg;
+      customError.statusCode = StatusCodes.BAD_REQUEST;
+   }
+
+   if (err?.errors?.name?.kind === 'maxlength') {
+      customError.msg = 'Nome não deve conter mais de 30 caracteres.';
+      customError.statusCode = StatusCodes.BAD_REQUEST;
+   }
+
+   if (err?.errors?.name?.kind === 'minlength') {
+      customError.msg = 'Nome não deve conter menos de 3 caracteres.';
       customError.statusCode = StatusCodes.BAD_REQUEST;
    }
 
