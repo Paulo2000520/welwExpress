@@ -24,9 +24,12 @@ const storeSchema = new mongoose.Schema({
       match: [/\S+@\S+\.\S+/, 'Este email não é válido.'],
    },
    phone: {
-      type: Number,
+      type: String,
       required: [true, 'O telefone é obrigatório.'],
-      match: [/^\d{9}$/, 'O telefone deve ter 9 dígitos numéricos.'],
+      match: [
+         /^(?:\+244\s?)?9\d{2}[\s.-]?\d{3}[\s.-]?\d{3}$/,
+         'Insira um número de telefone válido.',
+      ],
       unique: true,
    },
    iban: {

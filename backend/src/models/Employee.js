@@ -1,9 +1,38 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+
+const provinciasValidas = [
+   'BN',
+   'BG',
+   'BI',
+   'CA',
+   'CC',
+   'CN',
+   'CS',
+   'CU',
+   'HU',
+   'HI',
+   'LU',
+   'LN',
+   'LS',
+   'MA',
+   'MO',
+   'NN',
+   'UI',
+   'UE',
+   'ZA',
+];
+
+const regexBI = new RegExp(
+   `^\\d{9}(${provinciasValidas.join('|')})\\d[A-Z0-9]$`,
+   'i'
+);
 
 const employeeSchema = new mongoose.Schema({
    role: {
       type: String,
-      enum: ['admin', 'comprador', 'vendedor', 'funcionario'],
+      enum: ['funcionario(a)'],
       required: true,
    },
    name: {
@@ -26,18 +55,18 @@ const employeeSchema = new mongoose.Schema({
    },
    password: {
       type: String,
-      required: [true, 'Insira uma palavra passe.'],
-      minlength: [6, 'Palavra-passe deve conter mais de 6 caracteres.'],
    },
    bi: {
       type: String,
-      required: [true, 'O B.I. é obrigatório!'],
+      required: true,
       unique: true,
       validate: {
-         validator: function (value) {
-            return regexBI.test(value); // `value` é o valor inserido no campo B.I.
+         validator: function (v) {
+            return /^\d{9}(BN|BG|BI|CA|CC|CN|CS|CU|HU|HI|LU|LN|LS|MA|MO|NN|UI|UE|ZA)\d[A-Z0-9]{1,2}$/i.test(
+               v
+            );
          },
-         message: (props) => `${props.value} não é um B.I. válido!`,
+         message: (props) => `B.I. Inválido: ${props.value}`,
       },
    },
    phone: {
@@ -66,3 +95,13 @@ const employeeSchema = new mongoose.Schema({
       default: Date.now(),
    },
 });
+
+employeeSchema.methods.createJWT = function () {
+   return jwt.sign(
+      { userId: this._id, name: this.name, role: this.role },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_LIFETIME }
+   );
+};
+
+module.exports = mongoose.model('Employee', employeeSchema, 'usuarios');

@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const Store = require('../models/Store');
-const { NotFoundError } = require('../errors');
+const { NotFoundError, UnauthenticatedError } = require('../errors');
 const { StatusCodes } = require('http-status-codes');
 
 const register = async (req, res) => {
@@ -20,7 +20,15 @@ const register = async (req, res) => {
    const user = await User.findById(owner);
 
    if (!user) {
-      throw new NotFoundError('Usuário não encontrado.');
+      throw new NotFoundError(
+         `Não existe um prorietário de loja com este ID ${owner}.`
+      );
+   }
+
+   if (user.role !== 'vendedor(a)') {
+      throw new UnauthenticatedError(
+         'Não podes cadastrar uma loja, com uma conta comprador(a)'
+      );
    }
 
    const store = new Store({
