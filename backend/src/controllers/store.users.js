@@ -66,6 +66,10 @@ const employee = async (req, res) => {
    const salt = await bcrypt.genSalt(10);
    const password = await bcrypt.hash(employeePassword, salt);
 
+   if (!sendEmail(email, isStore.name, employeePassword)) {
+      throw new Error('Algo correu mal, tente mais tarde!');
+   }
+
    const employee = new Employee({
       role: 'funcionario(a)',
       name,
@@ -89,8 +93,6 @@ const employee = async (req, res) => {
       },
       token,
    });
-
-   sendEmail(email, isStore.name, employeePassword);
 };
 
 module.exports = { seller, employee };

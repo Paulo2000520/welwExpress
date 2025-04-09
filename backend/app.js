@@ -25,6 +25,8 @@ const storeRouter = require('./src/routers/store');
 
 const productsRouter = require('./src/routers/products');
 
+const cartRouter = require('./src/routers/cart');
+
 const notFound = require('./src/middlewares/not-found');
 const errorHandlerMiddleware = require('./src/middlewares/error-handler');
 
@@ -35,6 +37,8 @@ app.use(process.env.BASE_URL, employeeAuthRouter);
 app.use(process.env.BASE_URL, storeRouter);
 
 app.use(process.env.BASE_URL, productsRouter);
+
+app.use(process.env.BASE_URL, cartRouter);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);

@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middlewares/authentication');
+const verifySeller = require('../middlewares/verify-seller');
 
 const {
    getAllProducts,
@@ -9,9 +11,15 @@ const {
    deleteProduct,
 } = require('../controllers/products');
 
-router.route('/products/').get(getAllProducts).post(createProduct);
+router
+   .route('/products')
+   .all(auth, verifySeller)
+   .get(getAllProducts)
+   .post(createProduct);
+
 router
    .route('/products/:id')
+   .all(auth, verifySeller)
    .get(getProduct)
    .patch(updateProduct)
    .delete(deleteProduct);

@@ -1,11 +1,24 @@
-// const path = require('path');
+require('dotenv').config();
 
-// console.log(path.join(process.cwd(), 'uploads'));
+const Product = require('./src/models/Product');
+const connect = require('./src/db/connect');
+const express = require('express');
+const app = express();
+const products = require('./produtos.json');
 
-const multer = require('multer');
+const populate = async (req, res) => {
+   const newProducts = await Product.create(products);
+   console.log('success!');
+};
 
-const storage = multer.memoryStorage();
+const start = async () => {
+   try {
+      await connect(process.env.MONGO_URI);
+      populate();
+      app.listen(8080, () => console.log('server running on port 8080'));
+   } catch (error) {
+      console.log(error);
+   }
+};
 
-const upload = multer({ storage });
-
-console.log(upload);
+start();

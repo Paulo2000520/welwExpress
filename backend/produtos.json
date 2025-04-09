@@ -1,0 +1,222 @@
+[
+   {
+      "name": "t-shirt",
+      "price": 10.0,
+      "desc": "t-shirt confortável com logotipo bordado em algudao",
+      "category": "roupas",
+      "colors": ["branca", "preta", "vermelha", "azul", "amarela"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 150,
+      "img": "/uploads/Screenshot_20250403-214715.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "camisa",
+      "price": 8.5,
+      "desc": "camisa de alta qualidade  ",
+      "category": "roupas",
+      "colors": ["branca", "preta", "vermelha", "azul", "amarela"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 100,
+      "img": "/uploads/transferir(5).jpeg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "vestido",
+      "price": 150.0,
+      "desc": "vestido femenino estilo liberdade",
+      "category": "roupas",
+      "colors": ["branca", "preta", "azul", "amarela", "vermelha"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 356,
+      "img": "/uploads/Screenshot_20250403-214507.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "saia",
+      "price": 150.0,
+      "desc": "saia estilo secretaria ",
+      "category": "roupas",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 50,
+      "img": "/uploads/Screenshot_20250403-214616.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "calça jeans",
+      "price": 7.5,
+      "desc": "novas tendencias do mercado",
+      "category": "roupas",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["25", "28", "30", "32", "38", "40", "42"],
+      "qty": 100,
+      "img": "/uploads/Screenshot_20250404-122047.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "calça social",
+      "price": 9.0,
+      "desc": "calça social masculina slim",
+      "category": "roupas",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 67,
+      "img": "/uploads/Screenshot_20250404-122232.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "calção",
+      "price": 5.0,
+      "desc": "calção masculino para exercicios ",
+      "category": "roupas",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 80,
+      "img": "/uploads/Screenshot_20250404-121812.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "casaco",
+      "price": 10.0,
+      "desc": "casaco basico em moleton com capuz  e ziper frontal ",
+      "category": "roupas",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 54,
+      "img": "/uploads/Screenshot_20250404-122347.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "blusa",
+      "price": 3.0,
+      "desc": "blusa femenina manga curta gola redonda",
+      "category": "roupas",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 97,
+      "img": "/uploads/Screenshot_20250403-215226.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "pantalonas",
+      "price": 8.0,
+      "desc": "pantalonas confortaveis para o local de trabalho",
+      "category": "roupas",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "qty": 97,
+      "img": "/uploads/Screenshot_20250403-214715.jpg",
+      "storeId": "67f527034d955519871478ea"
+   },
+   {
+      "name": "gileira",
+      "price": 1500.0,
+      "desc": "gileira de duas portas de 375 litros frost free",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["pequeno", "media", "grande"],
+      "qty": 30,
+      "img": "/uploads/Screenshot_20250403-214105.jpg",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "fogao",
+      "price": 200.0,
+      "desc": "fogao de quatros bocas",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta", "azul,vermelho"],
+      "sizes": ["pequeno", "grande"],
+      "qty": 76,
+      "img": "/uploads/images (16).jpeg",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "TV plasma",
+      "price": 2500.0,
+      "desc": "plasma 50 polegadas",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta"],
+      "sizes": ["pequena", "medio", "grande"],
+      "qty": 64,
+      "img": "/uploads/transferir (18)",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "ventilador",
+      "price": 20.0,
+      "desc": "ventiladorde seis colunas super power e regulavel permitido o ajuste da altura do vento",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta", "azul"],
+      "sizes": ["menor", "medio", "maior"],
+      "qty": 59,
+      "img": "/uploads/Screenshot_20250403-214243.jpg",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "ferro de engomar",
+      "price": 5.0,
+      "desc": "super potente",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta", "azul", "laranja", "amarelo"],
+      "sizes": ["pequena", "medio", "grande"],
+      "qty": 37,
+      "img": "/uploads/images (18).jpeg",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "tostadeira",
+      "price": 15.0,
+      "desc": "otimo para melhorar o seu matabicho",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta", "azul", "laranja", "amarelo"],
+      "sizes": ["pequena", "medio", "grande"],
+      "qty": 45,
+      "img": "/uploads/transferir (9).jpeg",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "maquina de lavar",
+      "price": 50.0,
+      "desc": "para uma lavagem mais segura e rapida",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta"],
+      "sizes": ["pequeno", "medio", "grande"],
+      "qty": 45,
+      "img": "/uploads/transferir (7).jpeg",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "cafeteira eletrica",
+      "price": 10.0,
+      "desc": "super potente",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta"],
+      "sizes": ["pequeno", "medio", "grande"],
+      "qty": 58,
+      "img": "/uploads/transferir (11).jpeg",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "arca",
+      "price": 200.0,
+      "desc": "arca de duas grelhas",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta", "rosa", "azuel"],
+      "sizes": ["pequeno", "medio", "grande"],
+      "qty": 40,
+      "img": "/uploads/images (21).jpeg",
+      "storeId": "67f5284b4d955519871478fe"
+   },
+   {
+      "name": "frigobar",
+      "price": 68.0,
+      "desc": "frigobar mini com congelador Ice compact de 88 litros",
+      "category": "electrodomesticos",
+      "colors": ["branca", "preta", "rosa", "azul"],
+      "sizes": ["menor", "medio", "maior"],
+      "qty": 56,
+      "img": "/uploads/Screenshot_20250404-122457.jpg",
+      "storeId": "67f5284b4d955519871478fe"
+   }
+]

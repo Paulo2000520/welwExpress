@@ -25,20 +25,20 @@ const storeSchema = new mongoose.Schema({
    },
    phone: {
       type: String,
-      required: [true, 'O telefone é obrigatório.'],
+      required: [true, 'O número de telefone é obrigatório.'],
+      unique: true,
       match: [
          /^(?:\+244\s?)?9\d{2}[\s.-]?\d{3}[\s.-]?\d{3}$/,
          'Insira um número de telefone válido.',
       ],
-      unique: true,
    },
    iban: {
       type: String,
       required: [true, 'Insira o IBAN onde deseja receber os pagamentos.'],
       unique: true,
       match: [
-         /^AO\d{23}$/,
-         "O IBAN deve começar com 'AO' seguido de 23 dígitos numéricos.",
+         /^AO\d{21}$/,
+         "O IBAN deve começar com 'AO' seguido de 21 dígitos numéricos.",
       ],
    },
    commerce: {
