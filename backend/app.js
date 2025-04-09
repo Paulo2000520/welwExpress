@@ -2,6 +2,7 @@ require('dotenv').config();
 require('express-async-errors');
 
 const express = require('express');
+const path = require('path');
 const app = express();
 const cors = require('cors');
 
@@ -15,6 +16,11 @@ app.use(
       methods: ['GET', 'POST', 'PATCH', 'DELETE'],
       allowedHeaders: ['Content-Type', 'Authorization'],
    })
+);
+
+app.use(
+   '/uploads/produtos',
+   express.static(path.join(__dirname, 'uploads', 'produtos'))
 );
 
 const sellerAuthRouter = require('./src/routers/user');

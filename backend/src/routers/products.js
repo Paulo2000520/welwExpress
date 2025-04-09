@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middlewares/authentication');
 const verifySeller = require('../middlewares/verify-seller');
+const upload = require('../middlewares/upload');
 
 const {
    getAllProducts,
@@ -15,6 +16,7 @@ router
    .route('/products')
    .all(auth, verifySeller)
    .get(getAllProducts)
+   .all(upload.single('image'))
    .post(createProduct);
 
 router

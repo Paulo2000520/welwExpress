@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema({
       type: Number,
       required: [true, 'A quantidade do produto é obrigatório'],
    },
-   img: {
+   image: {
       type: String,
       trim: true,
    },

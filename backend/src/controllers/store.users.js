@@ -16,27 +16,30 @@ const generatePassword = (length = 10) => {
 const seller = async (req, res) => {
    const { name, email, password } = req.body;
 
-   let alvara = null;
-
    if (!req.file) {
       throw new BadRequestError(
-         'Envie uma imagem da sua alvará de comerciante'
+         'Envie uma imagem da sua alvará de comerciante.'
       );
    }
 
-   alvara = `${Date.now()}${path.extname(req.file.originalname)}`;
-
-   const uploadPath = path.join(process.cwd(), 'uploads', alvara);
+   const alvaraPath = `${Date.now()}${path.extname(req.file.originalname)}`;
 
    const newSeller = new User({
       role: 'vendedor(a)',
       name,
       email,
       password,
-      alvara,
+      alvara: `/uploads/alvaras/${alvaraPath}`,
    });
 
    await newSeller.save();
+
+   const uploadPath = path.join(
+      process.cwd(),
+      'uploads',
+      'alvaras',
+      alvaraPath
+   );
 
    fs.writeFileSync(uploadPath, req.file.buffer);
 
@@ -93,6 +96,8 @@ const employee = async (req, res) => {
       },
       token,
    });
+
+   sendEmail(email, isStore.name, employeePassword);
 };
 
 module.exports = { seller, employee };

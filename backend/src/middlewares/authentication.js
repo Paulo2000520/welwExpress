@@ -5,9 +5,7 @@ const auth = (req, res, next) => {
    const authHeader = req.headers.authorization;
 
    if (!authHeader || !authHeader.startsWith('Bearer')) {
-      throw new UnauthenticatedError(
-         'Não tem autorização para acessar esta rota'
-      );
+      throw new UnauthenticatedError('Acesso negado!');
    }
 
    const token = authHeader.split(' ')[1];
@@ -23,9 +21,7 @@ const auth = (req, res, next) => {
 
       next();
    } catch (error) {
-      throw new UnauthenticatedError(
-         'Não tem autorização para acessar esta rota'
-      );
+      throw new UnauthenticatedError('Acesso negado!');
    }
 };
 

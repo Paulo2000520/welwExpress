@@ -1,5 +1,7 @@
 const Product = require('../models/Product');
 const Store = require('../models/Store');
+const fs = require('fs');
+const path = require('path');
 const { NotFoundError, BadRequestError } = require('../errors');
 const { StatusCodes } = require('http-status-codes');
 
@@ -18,13 +20,41 @@ const getAllProducts = async (req, res) => {
 const createProduct = async (req, res) => {
    const store = await Store.findOne({ owner: req.user.userId });
 
-   if (!store) {
-      throw new NotFoundError('Loja não encontrada!');
+   const { name, price, desc, category, colors, sizes, qty } = req.body;
+
+   if (!req.file) {
+      throw new BadRequestError('Adiciona a imagem do produto.');
    }
 
-   const product = await Product.create({ ...req.body, storeId: store._id });
+   let imagePath = `${Date.now()}${path.extname(req.file.originalname)}`;
 
-   res.status(StatusCodes.CREATED).json({ product });
+   const product = new Product({
+      name,
+      price,
+      desc,
+      category,
+      colors: JSON.parse(colors),
+      sizes: JSON.parse(sizes),
+      qty,
+      image: `/uploads/produtos/${imagePath}`,
+      storeId: store._id,
+   });
+
+   await product.save();
+
+   const uploadPath = path.join(
+      process.cwd(),
+      'uploads',
+      'produtos',
+      imagePath
+   );
+
+   fs.writeFileSync(uploadPath, req.file.buffer);
+
+   res.status(StatusCodes.CREATED).json({
+      msg: 'produto cadastrado com sucesso!',
+      product,
+   });
 };
 
 const getProduct = async (req, res) => {
