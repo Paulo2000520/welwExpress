@@ -1,33 +1,5 @@
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-
-const provinciasValidas = [
-   'BN',
-   'BG',
-   'BI',
-   'CA',
-   'CC',
-   'CN',
-   'CS',
-   'CU',
-   'HU',
-   'HI',
-   'LU',
-   'LN',
-   'LS',
-   'MA',
-   'MO',
-   'NN',
-   'UI',
-   'UE',
-   'ZA',
-];
-
-const regexBI = new RegExp(
-   `^\\d{9}(${provinciasValidas.join('|')})\\d[A-Z0-9]$`,
-   'i'
-);
 
 const employeeSchema = new mongoose.Schema({
    role: {

@@ -7,7 +7,7 @@ const path = require('path');
 const { BadRequestError, NotFoundError } = require('../errors');
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
-const sendEmail = require('./nodemailer');
+const sendEmail = require('../config/nodemailer');
 
 const generatePassword = (length = 10) => {
    return crypto.randomBytes(length).toString('hex').slice(0, length);
@@ -22,14 +22,14 @@ const seller = async (req, res) => {
       );
    }
 
-   const alvaraPath = `${Date.now()}${path.extname(req.file.originalname)}`;
+   const alvaraName = `${Date.now()}${path.extname(req.file.originalname)}`;
 
    const newSeller = new User({
       role: 'vendedor(a)',
       name,
       email,
       password,
-      alvara: `/uploads/alvaras/${alvaraPath}`,
+      alvara: `/uploads/alvaras/${alvaraName}`,
    });
 
    await newSeller.save();
@@ -38,7 +38,7 @@ const seller = async (req, res) => {
       process.cwd(),
       'uploads',
       'alvaras',
-      alvaraPath
+      alvaraName
    );
 
    fs.writeFileSync(uploadPath, req.file.buffer);
@@ -58,7 +58,7 @@ const seller = async (req, res) => {
 const employee = async (req, res) => {
    let { name, bi, email, phone, address, store } = req.body;
 
-   const isStore = await Store.findById(store);
+   const isStore = await Store.findOne({ _id: store, owner: req.user.userId });
 
    if (!isStore) {
       throw new NotFoundError('Nenhuma loja com este ID.');
@@ -68,10 +68,6 @@ const employee = async (req, res) => {
 
    const salt = await bcrypt.genSalt(10);
    const password = await bcrypt.hash(employeePassword, salt);
-
-   if (!sendEmail(email, isStore.name, employeePassword)) {
-      throw new Error('Algo correu mal, tente mais tarde!');
-   }
 
    const employee = new Employee({
       role: 'funcionario(a)',
@@ -97,7 +93,21 @@ const employee = async (req, res) => {
       token,
    });
 
-   sendEmail(email, isStore.name, employeePassword);
+   const msg = `<p>Ola, Sr(a): ${name}! Foi criada uma conta funcionário com o teu email pela loja: 
+      <strong>
+         ${isStore.name}
+      </strong>
+      </p>
+      <hr>
+      <p>Dados de acesso: Email: <strong>${email}</strong></p>
+      <p>Senha: <strong>${employeePassword}</strong></p>
+      <hr>
+      <p>Não partilhe com ninguém os teus dados de acesso, recomendamo-o a alterar a sua senha de acesso, obrigado!<p>
+      <br>
+      <a href="#">WelwExpress | Login</a>
+      `;
+
+   sendEmail(msg, 'Cadastro de conta para funcionário.', email);
 };
 
 module.exports = { seller, employee };

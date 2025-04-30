@@ -26,7 +26,7 @@ const createProduct = async (req, res) => {
       throw new BadRequestError('Adiciona a imagem do produto.');
    }
 
-   let imagePath = `${Date.now()}${path.extname(req.file.originalname)}`;
+   let imageName = `${Date.now()}${path.extname(req.file.originalname)}`;
 
    const product = new Product({
       name,
@@ -36,7 +36,7 @@ const createProduct = async (req, res) => {
       colors: JSON.parse(colors),
       sizes: JSON.parse(sizes),
       qty,
-      image: `/uploads/produtos/${imagePath}`,
+      image: `/uploads/produtos/${imageName}`,
       storeId: store._id,
    });
 
@@ -46,7 +46,7 @@ const createProduct = async (req, res) => {
       process.cwd(),
       'uploads',
       'produtos',
-      imagePath
+      imageName
    );
 
    fs.writeFileSync(uploadPath, req.file.buffer);
@@ -87,14 +87,19 @@ const updateProduct = async (req, res) => {
 
    const store = await Store.find({ owner: user.userId });
 
+   return console.log(store);
+
    if (!store) {
       throw new NotFoundError('Loja não encontrada!');
    }
 
    const product = await Product.findOneAndUpdate(
-      { _id: productId, storeId: store[0]._id },
+      { _id: productId, storeId: store._id },
       req.body,
-      { new: true, runValidators: true }
+      {
+         new: true,
+         runValidators: true,
+      }
    );
 
    if (!product) {
@@ -116,6 +121,8 @@ const deleteProduct = async (req, res) => {
    } = req;
 
    const store = await Store.find({ owner: user.userId });
+
+   return console.log(store);
 
    if (!store) {
       throw new NotFoundError('Loja não encontrada!');

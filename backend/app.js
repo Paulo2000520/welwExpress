@@ -2,13 +2,13 @@ require('dotenv').config();
 require('express-async-errors');
 
 const express = require('express');
-const path = require('path');
-const app = express();
 const cors = require('cors');
+const swaggerUI = require('swagger-ui-express');
+const path = require('path');
+
+const app = express();
 
 const connect = require('./src/db/connect');
-
-app.use(express.json());
 
 app.use(
    cors({
@@ -18,20 +18,25 @@ app.use(
    })
 );
 
+app.use(express.json());
+
+const specs = require('./swagger');
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs));
+
 app.use(
    '/uploads/produtos',
    express.static(path.join(__dirname, 'uploads', 'produtos'))
 );
 
-const sellerAuthRouter = require('./src/routers/user');
-const userAuthRouter = require('./src/routers/user');
-const employeeAuthRouter = require('./src/routers/user');
+const sellerAuthRouter = require('./src/routes/user');
+const userAuthRouter = require('./src/routes/user');
+const employeeAuthRouter = require('./src/routes/user');
 
-const storeRouter = require('./src/routers/store');
-
-const productsRouter = require('./src/routers/products');
-
-const cartRouter = require('./src/routers/cart');
+const storeRouter = require('./src/routes/store');
+const productsRouter = require('./src/routes/products');
+const ordersRouter = require('./src/routes/orders');
+const checkoutRouter = require('./src/routes/checkout');
 
 const notFound = require('./src/middlewares/not-found');
 const errorHandlerMiddleware = require('./src/middlewares/error-handler');
@@ -41,10 +46,9 @@ app.use(process.env.BASE_URL, userAuthRouter);
 app.use(process.env.BASE_URL, employeeAuthRouter);
 
 app.use(process.env.BASE_URL, storeRouter);
-
 app.use(process.env.BASE_URL, productsRouter);
-
-app.use(process.env.BASE_URL, cartRouter);
+app.use(process.env.BASE_URL, ordersRouter);
+app.use(process.env.BASE_URL, checkoutRouter);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
